@@ -4,7 +4,9 @@
 
 To serve the html file, use:
 
-`python -m http.server 8000`
+`./run.sh` on unix or
+
+`python3 -m http.server 8000` anywhere
 
 The basics of webrtc can then be observed from you browser at:
 
