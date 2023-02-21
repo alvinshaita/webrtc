@@ -34,7 +34,8 @@ startButton.onclick = () => {
 		peerConnection1.addIceCandidate(event.candidate)
 	}
 
-	navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+	// navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+	navigator.mediaDevices.getUserMedia({ video: true, audio: false })
 	.then(s => {
 		stream = s
 		video1.srcObject = s
@@ -86,4 +87,9 @@ stopit.onclick = () => {
 	video2.autoplay = false
 	video2.controls = false
 	video2.srcObject = null
+
+	if (stream) {
+		var tracks = stream.getTracks();
+		tracks.forEach(track => track.stop())
+	}
 }
